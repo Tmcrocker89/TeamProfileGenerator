@@ -3,6 +3,8 @@ const Intern = require("./lib/Intern");
 const Manager = require("./lib/Manager");
 const inquirer = require("inquirer");
 const fs = require("fs");
+const generateHTML = require('./dist/generateHTML')
+const path = require('path');
 
 
 const employees = [];
@@ -148,9 +150,9 @@ const addEmployee = () =>
             } else 
             {
                 console.log(employees)
-                fs.writeFile('team.html', render(employees), "utf8", function(err) {
-                    if (err) { return console.log(err) }
-                    console.log("Success!");
+                fs.writeFile((__dirname, 'output/index.html'), generateHTML(employees), "utf8", function(err) 
+                {
+                    err ? console.log(err) : console.log("Success!");
                 });
             }
         })
@@ -158,6 +160,7 @@ const addEmployee = () =>
 
 const addManager = () => 
 {
+    console.log(generateHTML)
     inquirer
         .prompt(
         {
@@ -173,9 +176,9 @@ const addManager = () =>
             } 
             else 
             {
-                fs.writeFile(outputPath, renderHTML(employees), "utf8", function(err) {
-                    if (err) { return console.log(err) }
-                    console.log("Success!");
+                fs.writeFile(path.join(__dirname, 'output/index.html'), generateHTML(employees), "utf8", function(err) 
+                {
+                    err ? console.log(err) : console.log("Success!");                  
                 });
             }
         })

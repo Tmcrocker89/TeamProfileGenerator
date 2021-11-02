@@ -1,0 +1,21 @@
+body,html{
+    background-color: rgb(63, 63, 63);
+}
+#navbar-text{
+    font-size: 50px;
+    color: lightblue;
+}
+.card-header{
+    color: lightblue;
+    background-color: rgb(63, 63, 63);
+}
+.card-body{
+    color: white;
+    background-color: rgb(63, 63, 63);
+    font-size: 20px;
+}
+.card-body p a {
+    text-decoration: none !important;
+    color: lightblue;
+    font-size: 25px;
+}
